@@ -4,16 +4,11 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.Collection;
-import java.util.List;
 
-// using jp annotations to make it a jp class
-@AllArgsConstructor
-@NoArgsConstructor
+
 @RequiredArgsConstructor
 @Getter
 @Setter
-
 @Entity
 public class User {
     @Id
@@ -29,10 +24,7 @@ public class User {
     @NotBlank(message = "password is required")
     private String password;
 
-//    public User(String firstName, String lastName, String email, String password) {
-//
-//    }
-//    //  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+
 
 
 }

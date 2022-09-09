@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="UTF-8">
-    <title>welcome page</title>
+    <meta charset="ISO-8859-1">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+
+
 </head>
 <body>
+<!-- create navigation bar ( header) -->
+<nav class="navbar navbar-expand-lg bg-light">
+
+    <div class="container">
+        <a class="navbar-brand" href="/admin" style="font-size:xx-small"><i class="fab fa-4x">E-Shopping</i></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart">Cart<span class="badge badge-danger px-1"> ${ cart_list.size()}</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="orders">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="login" th:href="/logout">Logout</a></li>
+<!--                <li class="nav-item"><a class="nav-link" href="login">Login</a></li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->
+
+<style>
+    /* Color of the links BEFORE scroll */
+    .navbar-scroll .nav-link,
+    .navbar-scroll .navbar-toggler-icon,
+    .navbar-scroll .navbar-brand {
+        color: white
+    }
+
+    .navbar-scroll {
+        background-color:darkblue;
+    }
+
+    /* Color of the links AFTER scroll */
+    .navbar-scrolled .navbar-scrolled {
+        color: #262626;
+    }
+
+    .navbar-brand {
+        color: slategray;
+        font-family: "Noto Sans Old Italic";
+        font-size:unset;
+        height: 2rem;
+    }
+</style>
+<br>
+<br>
+
+<div class="container">
+    Welcome <span sec:authentication="principal.username"> User</span>
+</div>
 
 </body>
 </html>

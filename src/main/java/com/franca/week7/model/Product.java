@@ -1,31 +1,28 @@
 package com.franca.week7.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 
 @Entity
-@Data
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
+    @Column(unique = true)
     private String productName;;
     @NotBlank
     private String productCategory;
     @NotBlank
     private String productPrice;
+    private String productDescription;
 
 
 
